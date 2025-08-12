@@ -4,7 +4,6 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
-
   css: ["~/assets/css/main.css"],
   vite: { plugins: [tailwindcss()] },
 
@@ -15,6 +14,7 @@ export default defineNuxtConfig({
     "@nuxt/image",
     "@nuxt/scripts",
     "@clerk/nuxt",
+    "@sentry/nuxt/module",
   ],
 
   clerk: {
@@ -25,5 +25,18 @@ export default defineNuxtConfig({
     public: {
       convexUrl: process.env.CONVEX_URL,
     },
+  },
+
+  sentry: {
+    sourceMapsUploadOptions: {
+      org: "ta-sy-tan",
+      project: "nuxt-echo",
+    },
+
+    autoInjectServerSentry: "top-level-import",
+  },
+
+  sourcemap: {
+    client: "hidden",
   },
 });
