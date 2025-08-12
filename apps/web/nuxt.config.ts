@@ -14,7 +14,12 @@ export default defineNuxtConfig({
     "@nuxt/icon",
     "@nuxt/image",
     "@nuxt/scripts",
+    "@clerk/nuxt",
   ],
+
+  clerk: {
+    skipServerMiddleware: true,
+  },
 
   runtimeConfig: {
     public: {

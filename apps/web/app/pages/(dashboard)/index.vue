@@ -1,11 +1,12 @@
 <script setup lang="ts">
+import orgMiddleware from '~/middleware/auth/org';
+
 definePageMeta({
-  layout: 'dashboard'
+  layout: 'dashboard',
+  middleware: [orgMiddleware]
 })
-
-const { data } = useLazyFetch('/api/hello')
-
-watchEffect(() => console.log('111111111111', data.value))
 </script>
 
-<template>123</template>
+<template>
+  <OrgManager />
+</template>
